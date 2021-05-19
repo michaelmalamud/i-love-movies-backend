@@ -1,5 +1,6 @@
 const knex = require("../db/connection")
 
+
 function read(movieId) {
     return knex("movies as m")
     .select("m.movie_id", "m.title", "m.runtime_in_minutes", "m.rating", "m.description", "m.image_url")
@@ -23,5 +24,6 @@ function list(isShowing) {
 
 module.exports = {
     list,
-    read
+    read,
+    // theatersByMovie
 }

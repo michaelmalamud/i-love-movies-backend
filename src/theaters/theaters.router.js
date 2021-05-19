@@ -1,6 +1,6 @@
-//use express router to set up paths
+//use express router to set up paths and merges parameters from movies router
 
-const router = require("express").Router();
+const router = require("express").Router({mergeParams: true});
 
 //imports controller functions
 

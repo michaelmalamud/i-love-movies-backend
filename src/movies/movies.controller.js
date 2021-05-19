@@ -13,6 +13,7 @@ async function movieExists(req, res, next) {
         })
 }
 
+
 async function read(req, res) {
     res.json({ data: await moviesService.read(res.locals.movieId) })
 }
@@ -23,5 +24,5 @@ async function list(req, res) {
   }
 module.exports = {
     read: [movieExists, read],
-    list
+    list,
 }
