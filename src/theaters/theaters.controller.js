@@ -18,7 +18,6 @@ async function list(req, res) {
         description: ["movies", null, "description"],
         image_url: ["movies", null, "image_url"],
         is_showing: ["movies", null, "is_showing"],
-        theater_id: ["movies", null, "theater_id"]
     })
     res.json({ data: reduceMovies(theaters) })
 }

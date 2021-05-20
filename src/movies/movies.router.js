@@ -1,3 +1,7 @@
+//imports reviews router
+
+const reviewsRouter = require("../reviews/reviews.router");
+
 //imports theaters router
 
 const theatersRouter = require("../theaters/theaters.router");
@@ -9,6 +13,10 @@ const router = require("express").Router();
 //import controller functions in
 
 const controller = require("./movies.controller");
+
+//establishes use of nested reviews route 
+
+router.use("/:movieId/reviews", reviewsRouter)
 
 //establishes use of nested theaters route 
 
