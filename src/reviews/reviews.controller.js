@@ -1,3 +1,5 @@
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
+
 const reviewsService = require("./reviews.service");
 
 
@@ -35,7 +37,7 @@ async function destroy(req, res) {
     res.sendStatus(204);
 }
 
-module.exports = { delete: [reviewExists, destroy],
-                   update: [reviewExists, update],
-                   list
+module.exports = { delete: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(destroy)],
+                   update: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(update)],
+                   list: asyncErrorBoundary(list)
                  }

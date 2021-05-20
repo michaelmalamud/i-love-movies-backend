@@ -1,3 +1,7 @@
+//imports asyncErrorBoundary
+
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary")
+
 //imports theaters service functions
 
 const theatersService = require("./theaters.service");
@@ -25,5 +29,5 @@ async function list(req, res) {
 //exports controller functions
 
 module.exports = {
-     list 
+     list: asyncErrorBoundary(list) 
 }

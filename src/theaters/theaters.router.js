@@ -1,3 +1,7 @@
+//imports methodNotAllowed
+
+const methodNotAllowed = require("../errors/methodNotAllowed")
+
 //use express router to set up paths and merges parameters from movies router
 
 const router = require("express").Router({mergeParams: true});
@@ -9,7 +13,7 @@ const controller = require("./theaters.controller");
 
 //establishes routes 
 
-router.route("/").get(controller.list);
+router.route("/").get(controller.list).all(methodNotAllowed);
 
 //exports router
 

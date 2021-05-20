@@ -1,3 +1,9 @@
+//imports asyncErrorBoundary
+
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
+
+//imports movies.service functions
+
 const moviesService = require("./movies.service");
 
 async function movieExists(req, res, next) {
@@ -23,6 +29,6 @@ async function list(req, res) {
     res.json({ data });
   }
 module.exports = {
-    read: [movieExists, read],
-    list,
+    read: [asyncErrorBoundary(movieExists), asyncErrorBoundary(read)],
+    list: asyncErrorBoundary(list)
 }

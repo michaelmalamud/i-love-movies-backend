@@ -6,10 +6,17 @@ const cors = require("cors");
 
 const errorHandler = require("./errors/errorHandler");
 
+//imports notFound
+
+const notFound = require("./errors/notFound");
+
+
 //imports movies Router
+
 const moviesRouter = require("./movies/movies.router.js");
 
 //imports theaters Router
+
 const theatersRouter = require("./theaters/theaters.router.js");
 
 //imports reviews router
@@ -31,6 +38,10 @@ app.use("/movies", moviesRouter);
 //uses reviews router for /reviews
 
 app.use("/reviews", reviewsRouter);
+
+//handles non-existent endpoints
+
+app.use(notFound);
 
 //handles all errors for correct routes
 
