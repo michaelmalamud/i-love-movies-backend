@@ -1,5 +1,8 @@
 if (process.env.USER) require("dotenv").config();
 const express = require("express");
+
+//imports cors 
+
 const cors = require("cors");
 
 //imports errorHandler function
@@ -26,6 +29,10 @@ const reviewsRouter = require("./reviews/reviews.router.js")
 const app = express();
 
 app.use(express.json());
+
+//uses cors
+
+app.use(cors());
 
 //uses theaters router for all endpoints from /theaters, where /theaters is "home"
 
