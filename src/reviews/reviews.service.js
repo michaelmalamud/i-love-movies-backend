@@ -1,7 +1,5 @@
 //establishes connection to knex
 
-
-const { KnexTimeoutError } = require("knex");
 const knex = require("../db/connection");
 const mapProperties = require("../utils/map-properties");
 
